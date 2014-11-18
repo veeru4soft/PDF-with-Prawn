@@ -1,0 +1,30 @@
+<h1>Listing samples</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+	<th></th>
+  </tr>
+
+<% @samples.each do |sample| %>
+  <tr>
+    <td><%= sample.name %></td>
+    <td><%= sample.email %></td>
+    <td><%= sample.comment %></td>
+    <td><%= link_to 'Show', sample %></td>
+    <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
+	<td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+	<td><%= link_to 'Download as a PDF', get_pdf_path(:id => sample.id) %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sample', new_sample_path %>
